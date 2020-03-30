@@ -23,6 +23,9 @@ RUN npm run build
 #Use nginx
 FROM nginx
 
+# this means nothing to us but Elastic beanstalk will look at this.
+EXPOSE 80
+
 #Copy over the result of npm run build (or resulted files from the build phase)
 #Copy them to the Nginx directory, just as static files:
 COPY --from=builder /app/build /usr/share/nginx/html
